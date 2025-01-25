@@ -13,6 +13,7 @@ public class WaveDetails
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private WaveDetails currentWave;
+    [Space]
     [SerializeField] private Transform respawn;
     [SerializeField] private float spawnCooldown;
     private float spawnTimer;
