@@ -6,19 +6,27 @@ public class Tower : MonoBehaviour
 {
     public Transform currentEnemy;
 
+    protected float lastTimeAttacked;
+
     [Header("Tower Setup")]
-    [SerializeField] private Transform towerHead;
-    [SerializeField] private float rotationSpeed;
+    [SerializeField] protected Transform towerHead;
+    [SerializeField] protected float rotationSpeed = 10;
 
-    [SerializeField] private float attackRange = 1.5f;
-    [SerializeField] private LayerMask whatIsEnemy;
+    [SerializeField] protected float attackRange = 2.5f;
+    [SerializeField] protected float attackCooldown = 1;
+    [SerializeField] protected LayerMask whatIsEnemy;
 
-    private void Update()
+    protected virtual void Update()
     {
         if (currentEnemy == null)
         {
             currentEnemy = FindRandomEnemyWithinRange();
             return;
+        }
+
+        if (CanAttack())
+        {
+            Attack();
         }
 
         if (Vector3.Distance(currentEnemy.position, transform.position) > attackRange)
@@ -30,7 +38,22 @@ public class Tower : MonoBehaviour
 
     }
 
-    private Transform FindRandomEnemyWithinRange()
+    protected virtual void Attack()
+    {
+        Debug.Log("attack perfoermed at " + Time.time);
+    }
+
+    protected bool CanAttack()
+    {
+        if (Time.time > lastTimeAttacked + attackCooldown)
+        {
+            lastTimeAttacked = Time.time;
+            return true;
+        }
+        return false;
+    }
+
+    protected Transform FindRandomEnemyWithinRange()
     {
         Collider[] enemiesAround = Physics.OverlapSphere(transform.position, attackRange, whatIsEnemy);
 
@@ -48,7 +71,7 @@ public class Tower : MonoBehaviour
         return possibleTargets[randomIndex];
     }
 
-    private void RotateTowardsEnemy()
+    protected virtual void RotateTowardsEnemy()
     {
         if (currentEnemy == null) return;
 
@@ -65,7 +88,7 @@ public class Tower : MonoBehaviour
         towerHead.rotation = Quaternion.Euler(rotation);
     }
 
-    private void OnDrawGizmos()
+    protected virtual void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
