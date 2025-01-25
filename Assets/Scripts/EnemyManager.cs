@@ -1,21 +1,37 @@
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
+[System.Serializable]
+public class WaveDetails
+{
+    public int basicEnemy;
+    public int fastEnemy;
+}
 
 public class EnemyManager : MonoBehaviour
 {
+    [SerializeField] private WaveDetails currentWave;
     [SerializeField] private Transform respawn;
     [SerializeField] private float spawnCooldown;
     private float spawnTimer;
 
-
+    private List<GameObject> enemiesToCreate;
     [Header("Enemy Prefabs")]
     [SerializeField] private GameObject basicEnemy;
+    [SerializeField] private GameObject fastEnemy;
+
+    private void Start()
+    {
+        enemiesToCreate = NewEnemyWave();
+    }
 
     private void Update()
     {
         spawnTimer -= Time.deltaTime;
 
-        if (spawnTimer <= 0)
+        if (spawnTimer <= 0 && enemiesToCreate.Count > 0)
         {
             CreateEnemy();
             spawnTimer = spawnCooldown;
@@ -24,6 +40,35 @@ public class EnemyManager : MonoBehaviour
 
     private void CreateEnemy()
     {
-        GameObject newEnemy = Instantiate(basicEnemy, respawn.position, Quaternion.identity);
+        GameObject randomEnemy = GetRandomEnemy();
+        GameObject newEnemy = Instantiate(randomEnemy, respawn.position, Quaternion.identity);
     }
+
+    private GameObject GetRandomEnemy()
+    {
+        int randomIndex = Random.Range(0, enemiesToCreate.Count);
+        GameObject choosenEnemy = enemiesToCreate[randomIndex];
+
+        enemiesToCreate.Remove(choosenEnemy);
+
+        return choosenEnemy;
+    }
+
+    private List<GameObject> NewEnemyWave()
+    {
+        List<GameObject> newEnemyList = new();
+
+        for (int i = 0; i < currentWave.basicEnemy; i++)
+        {
+            newEnemyList.Add(basicEnemy);
+        }
+
+        for (int i = 0; i < currentWave.fastEnemy; i++)
+        {
+            newEnemyList.Add(fastEnemy);
+        }
+
+        return newEnemyList;
+    }
+
 }
