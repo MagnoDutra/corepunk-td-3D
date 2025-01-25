@@ -1,5 +1,6 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Tower : MonoBehaviour
 {
@@ -9,13 +10,48 @@ public class Tower : MonoBehaviour
     [SerializeField] private Transform towerHead;
     [SerializeField] private float rotationSpeed;
 
+    [SerializeField] private float attackRange = 1.5f;
+    [SerializeField] private LayerMask whatIsEnemy;
+
     private void Update()
     {
+        if (currentEnemy == null)
+        {
+            currentEnemy = FindRandomEnemyWithinRange();
+            return;
+        }
+
+        if (Vector3.Distance(currentEnemy.position, transform.position) > attackRange)
+        {
+            currentEnemy = null;
+        }
+
         RotateTowardsEnemy();
+
+    }
+
+    private Transform FindRandomEnemyWithinRange()
+    {
+        Collider[] enemiesAround = Physics.OverlapSphere(transform.position, attackRange, whatIsEnemy);
+
+        if (enemiesAround.Length <= 0) return null;
+
+        List<Transform> possibleTargets = new();
+
+        foreach (Collider enemy in enemiesAround)
+        {
+            possibleTargets.Add(enemy.transform);
+        }
+
+        int randomIndex = Random.Range(0, possibleTargets.Count);
+
+        return possibleTargets[randomIndex];
     }
 
     private void RotateTowardsEnemy()
     {
+        if (currentEnemy == null) return;
+
         // Aqui pegamos a direção
         Vector3 direction = currentEnemy.position - towerHead.position;
 
@@ -27,5 +63,10 @@ public class Tower : MonoBehaviour
 
         // Euler desceve angulos baseado em vector3
         towerHead.rotation = Quaternion.Euler(rotation);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
