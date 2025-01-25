@@ -1842,7 +1842,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.17
-  m_Speed: 1.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 99
   m_AngularSpeed: 120
@@ -3116,6 +3116,7 @@ GameObject:
   - component: {fileID: 5744464101434250897}
   - component: {fileID: 6241455424708813221}
   - component: {fileID: 1964311545584940250}
+  - component: {fileID: 6241455424708813222}
   m_Layer: 0
   m_Name: basic_enemy_wheels_front
   m_TagString: Untagged
@@ -3411,6 +3412,7 @@ GameObject:
   - component: {fileID: 1024053638251157342}
   - component: {fileID: 6056877800062343070}
   - component: {fileID: 6298455469654439570}
+  - component: {fileID: 6298455469654439571}
   m_Layer: 0
   m_Name: fast_enemy_wheels
   m_TagString: Untagged
@@ -3464,6 +3466,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760899843882856234}
   m_Mesh: {fileID: 3414993952103692016, guid: d3e3ad3a1f00efe4e918391353303381, type: 3}
+--- !u!114 &6241455424708813222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760899843882856234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 010b39c88eb0e4729a6a9b17095b7bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationVector: {x: 1, y: 0, z: 0}
+  rotationSpeed: 3.5
 --- !u!23 &6298455469654439570
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3509,6 +3525,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6298455469654439571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5549945301298672791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 010b39c88eb0e4729a6a9b17095b7bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationVector: {x: 1, y: 0, z: 0}
+  rotationSpeed: 7
 --- !u!1 &6632782942293346997
 GameObject:
   m_ObjectHideFlags: 0
@@ -3619,6 +3649,7 @@ GameObject:
   - component: {fileID: 3201216327830016697}
   - component: {fileID: 687268968812668714}
   - component: {fileID: 6908399810727374405}
+  - component: {fileID: 7819019904503509244}
   m_Layer: 0
   m_Name: basic_enemy_wheels_back
   m_TagString: Untagged
@@ -3626,6 +3657,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7819019904503509244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7819019904503509243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 010b39c88eb0e4729a6a9b17095b7bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationVector: {x: 1, y: 0, z: 0}
+  rotationSpeed: 3.5
 --- !u!33 &8308122891269910468
 MeshFilter:
   m_ObjectHideFlags: 0
