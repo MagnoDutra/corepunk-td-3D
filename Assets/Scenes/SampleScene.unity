@@ -2083,6 +2083,9 @@ MonoBehaviour:
   meshRenderer: {fileID: 6077368371243394223}
   startColor: {r: 0, g: 0, b: 0, a: 1}
   endColor: {r: 0.047058824, g: 0.7607843, b: 0.7921569, a: 1}
+  rotor: {fileID: 4076390316109531647}
+  rotorUnloaded: {fileID: 1164099109}
+  rotorLoaded: {fileID: 1296160775}
   frontString_L: {fileID: 1335741725}
   frontString_R: {fileID: 76012722}
   frontStartPoint_L: {fileID: 141762843}
@@ -2095,6 +2098,11 @@ MonoBehaviour:
   backStartPoint_R: {fileID: 2101547179}
   backEndPoint_L: {fileID: 1052673037}
   backEndPoint_R: {fileID: 331157944}
+  lineRenderes:
+  - {fileID: 1335741725}
+  - {fileID: 76012722}
+  - {fileID: 386096181}
+  - {fileID: 1175094975}
 --- !u!1 &825588165
 GameObject:
   m_ObjectHideFlags: 0
@@ -2755,6 +2763,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4076390316109531647}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1164099108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1164099109}
+  m_Layer: 0
+  m_Name: rotor_position_unloaded
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1164099109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164099108}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00012518495, y: -0.42354736, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 565320262248310215}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1175094973
 GameObject:
   m_ObjectHideFlags: 0
@@ -3140,6 +3179,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1528633734}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1296160774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296160775}
+  m_Layer: 0
+  m_Name: rotor_position_loaded
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1296160775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296160774}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00012518495, y: -0.42354736, z: -0.1551}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 565320262248310215}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1311970845
 GameObject:
@@ -5525,6 +5595,8 @@ Transform:
   - {fileID: 1753741063}
   - {fileID: 4510600491170228147}
   - {fileID: 4076390316109531647}
+  - {fileID: 1164099109}
+  - {fileID: 1296160775}
   m_Father: {fileID: 4997055131385300384}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &632034414268679017
