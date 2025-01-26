@@ -76,7 +76,7 @@ public class Tower : MonoBehaviour
         if (currentEnemy == null) return;
 
         // Aqui pegamos a direção
-        Vector3 direction = currentEnemy.position - towerHead.position;
+        Vector3 direction = DirectionToEnemyFrom(towerHead);
 
         // Aqui criamos um quaternion que é a quantidade necessária para ele olhar para aquele inimigo
         Quaternion lookRotation = Quaternion.LookRotation(direction);
@@ -86,6 +86,11 @@ public class Tower : MonoBehaviour
 
         // Euler desceve angulos baseado em vector3
         towerHead.rotation = Quaternion.Euler(rotation);
+    }
+
+    protected Vector3 DirectionToEnemyFrom(Transform startPoint)
+    {
+        return (currentEnemy.position - startPoint.position).normalized;
     }
 
     protected virtual void OnDrawGizmos()
