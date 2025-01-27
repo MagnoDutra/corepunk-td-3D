@@ -3,8 +3,11 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
+    public int healthPoints = 4;
+
+    [Header("Movement")]
     [SerializeField] private Transform[] waypoints;
     [SerializeField] private float turnSpeed = 10;
 
@@ -50,5 +53,15 @@ public class Enemy : MonoBehaviour
         waypointIndex++;
 
         return targetPoint;
+    }
+
+    public void TakeDamage(int amount)
+    {
+        healthPoints -= amount;
+        if (healthPoints <= 0)
+        {
+            Destroy(gameObject);
+        }
+
     }
 }
