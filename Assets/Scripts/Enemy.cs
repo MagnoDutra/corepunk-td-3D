@@ -11,6 +11,9 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] private Transform[] waypoints;
     [SerializeField] private float turnSpeed = 10;
 
+    [Space]
+    private float totalDistance;
+
     private NavMeshAgent agent;
     private int waypointIndex = 0;
 
@@ -24,6 +27,17 @@ public class Enemy : MonoBehaviour, IDamageable
     private void Start()
     {
         waypoints = FindFirstObjectByType<WaypointManager>().GetWaypoints();
+
+        CollectTotalDistance();
+    }
+
+    private void CollectTotalDistance()
+    {
+        for (int i = 0; i < waypoints.Length - 1; i++)
+        {
+            float distance = Vector3.Distance(waypoints[i].position, waypoints[i + 1].position);
+            totalDistance += distance;
+        }
     }
 
     private void Update()
@@ -34,6 +48,8 @@ public class Enemy : MonoBehaviour, IDamageable
             agent.SetDestination(GetNextWaypoint());
         }
     }
+
+    public float DistanceToFinishLine() => totalDistance + agent.remainingDistance;
 
     private void FaceTarget(Vector3 newTarget)
     {
@@ -50,6 +66,13 @@ public class Enemy : MonoBehaviour, IDamageable
         if (waypointIndex >= waypoints.Length) return transform.position;
 
         Vector3 targetPoint = waypoints[waypointIndex].position;
+
+        if (waypointIndex > 0)
+        {
+            float distance = Vector3.Distance(waypoints[waypointIndex].position, waypoints[waypointIndex - 1].position);
+            totalDistance = totalDistance - distance;
+        }
+
         waypointIndex++;
 
         return targetPoint;
