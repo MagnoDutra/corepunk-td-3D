@@ -1794,10 +1794,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWave:
-    basicEnemy: 10
+    basicEnemy: 100
     fastEnemy: 0
   respawn: {fileID: 543450651694423739}
-  spawnCooldown: 3
+  spawnCooldown: 1
   basicEnemy: {fileID: 8836571055419465733, guid: 7af7f9396b21e4ed0b61d2a5f5a85480, type: 3}
   fastEnemy: {fileID: 2463454059152383153, guid: ca4eb1b8207b948a58c8283de43f5a93, type: 3}
 --- !u!4 &865846596
@@ -4440,15 +4440,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835046035463632584, guid: abf75c3b15b6d4f9d8afe9ee9146aea4, type: 3}
       propertyPath: damage
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4835046035463632584, guid: abf75c3b15b6d4f9d8afe9ee9146aea4, type: 3}
       propertyPath: attackRange
-      value: 2.5
+      value: 3.04
       objectReference: {fileID: 0}
     - target: {fileID: 7686453970505630758, guid: abf75c3b15b6d4f9d8afe9ee9146aea4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -4.24
       objectReference: {fileID: 0}
     - target: {fileID: 7686453970505630758, guid: abf75c3b15b6d4f9d8afe9ee9146aea4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4456,7 +4456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7686453970505630758, guid: abf75c3b15b6d4f9d8afe9ee9146aea4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.19
+      value: 2.88
       objectReference: {fileID: 0}
     - target: {fileID: 7686453970505630758, guid: abf75c3b15b6d4f9d8afe9ee9146aea4, type: 3}
       propertyPath: m_LocalRotation.w

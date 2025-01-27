@@ -62,16 +62,41 @@ public class Tower : MonoBehaviour
 
         if (enemiesAround.Length <= 0) return null;
 
-        List<Transform> possibleTargets = new();
+        List<Enemy> possibleTargets = new();
 
         foreach (Collider enemy in enemiesAround)
         {
-            possibleTargets.Add(enemy.transform);
+            Enemy newEnemy = enemy.GetComponent<Enemy>();
+
+            possibleTargets.Add(newEnemy);
         }
 
-        int randomIndex = Random.Range(0, possibleTargets.Count);
+        Enemy mostAdvancedEnemy = GetMostAdvancedEnemy(possibleTargets);
 
-        return possibleTargets[randomIndex];
+        if (mostAdvancedEnemy != null)
+        {
+            return mostAdvancedEnemy.transform;
+        }
+
+        return null;
+    }
+
+    private Enemy GetMostAdvancedEnemy(List<Enemy> targets)
+    {
+        Enemy mostAdvancedEnemy = null;
+        float minRemainingDistance = float.MaxValue;
+
+        foreach (Enemy enemy in targets)
+        {
+            float distance = enemy.DistanceToFinishLine();
+            if (distance < minRemainingDistance)
+            {
+                minRemainingDistance = distance;
+                mostAdvancedEnemy = enemy;
+            }
+        }
+
+        return mostAdvancedEnemy;
     }
 
     public void EnableRotation(bool enable)
