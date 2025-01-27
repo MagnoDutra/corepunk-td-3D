@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 public class Tower : MonoBehaviour
 {
-    public Transform currentEnemy;
+    public Enemy currentEnemy;
 
     protected float lastTimeAttacked;
 
@@ -17,7 +17,10 @@ public class Tower : MonoBehaviour
     [SerializeField] protected float attackCooldown = 1;
     [SerializeField] protected LayerMask whatIsEnemy;
 
-    protected virtual void Awake() { }
+    protected virtual void Awake()
+    {
+        EnableRotation(true);
+    }
 
     protected virtual void Update()
     {
@@ -32,7 +35,7 @@ public class Tower : MonoBehaviour
             Attack();
         }
 
-        if (Vector3.Distance(currentEnemy.position, transform.position) > attackRange)
+        if (Vector3.Distance(currentEnemy.CenterPoint(), transform.position) > attackRange)
         {
             currentEnemy = null;
         }
@@ -56,7 +59,7 @@ public class Tower : MonoBehaviour
         return false;
     }
 
-    protected Transform FindRandomEnemyWithinRange()
+    protected Enemy FindRandomEnemyWithinRange()
     {
         Collider[] enemiesAround = Physics.OverlapSphere(transform.position, attackRange, whatIsEnemy);
 
@@ -75,7 +78,7 @@ public class Tower : MonoBehaviour
 
         if (mostAdvancedEnemy != null)
         {
-            return mostAdvancedEnemy.transform;
+            return mostAdvancedEnemy;
         }
 
         return null;
@@ -123,7 +126,7 @@ public class Tower : MonoBehaviour
 
     protected Vector3 DirectionToEnemyFrom(Transform startPoint)
     {
-        return (currentEnemy.position - startPoint.position).normalized;
+        return (currentEnemy.CenterPoint() - startPoint.position).normalized;
     }
 
     protected virtual void OnDrawGizmos()

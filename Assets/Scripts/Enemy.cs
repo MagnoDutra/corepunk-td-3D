@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour, IDamageable
 {
     public int healthPoints = 4;
 
+    [SerializeField] private Transform centerPoint;
+
+
     [Header("Movement")]
     [SerializeField] private Transform[] waypoints;
     [SerializeField] private float turnSpeed = 10;
@@ -49,8 +52,6 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    public float DistanceToFinishLine() => totalDistance + agent.remainingDistance;
-
     private void FaceTarget(Vector3 newTarget)
     {
         Vector3 directionToTarget = newTarget - transform.position;
@@ -85,6 +86,9 @@ public class Enemy : MonoBehaviour, IDamageable
         {
             Destroy(gameObject);
         }
-
     }
+
+    public float DistanceToFinishLine() => totalDistance + agent.remainingDistance;
+
+    public Vector3 CenterPoint() => centerPoint.position;
 }
