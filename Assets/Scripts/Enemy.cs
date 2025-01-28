@@ -3,11 +3,17 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
 
+public enum EnemyType
+{
+    None, Fast, Basic
+}
+
 public class Enemy : MonoBehaviour, IDamageable
 {
     public int healthPoints = 4;
 
     [SerializeField] private Transform centerPoint;
+    [SerializeField] private EnemyType enemyType;
 
 
     [Header("Movement")]
@@ -91,4 +97,6 @@ public class Enemy : MonoBehaviour, IDamageable
     public float DistanceToFinishLine() => totalDistance + agent.remainingDistance;
 
     public Vector3 CenterPoint() => centerPoint.position;
+
+    public EnemyType GetEnemyType() => enemyType;
 }

@@ -9,6 +9,7 @@ public class Tower : MonoBehaviour
     protected float lastTimeAttacked;
 
     [Header("Tower Setup")]
+    [SerializeField] protected EnemyType enemyPriotiryType = EnemyType.None;
     [SerializeField] protected Transform towerHead;
     [SerializeField] protected float rotationSpeed = 10;
     private bool canRotate = true;
@@ -26,7 +27,7 @@ public class Tower : MonoBehaviour
     {
         if (currentEnemy == null)
         {
-            currentEnemy = FindRandomEnemyWithinRange();
+            currentEnemy = FindEnemyWithinRange();
             return;
         }
 
@@ -59,27 +60,32 @@ public class Tower : MonoBehaviour
         return false;
     }
 
-    protected Enemy FindRandomEnemyWithinRange()
+    protected Enemy FindEnemyWithinRange()
     {
         Collider[] enemiesAround = Physics.OverlapSphere(transform.position, attackRange, whatIsEnemy);
 
         if (enemiesAround.Length <= 0) return null;
 
+        List<Enemy> priorityTargets = new();
         List<Enemy> possibleTargets = new();
 
         foreach (Collider enemy in enemiesAround)
         {
             Enemy newEnemy = enemy.GetComponent<Enemy>();
+            EnemyType newEnemyType = newEnemy.GetEnemyType();
 
-            possibleTargets.Add(newEnemy);
+            if (newEnemyType == enemyPriotiryType)
+                priorityTargets.Add(newEnemy);
+            else
+                possibleTargets.Add(newEnemy);
         }
 
-        Enemy mostAdvancedEnemy = GetMostAdvancedEnemy(possibleTargets);
 
-        if (mostAdvancedEnemy != null)
-        {
-            return mostAdvancedEnemy;
-        }
+        if (priorityTargets.Count > 0)
+            return GetMostAdvancedEnemy(priorityTargets);
+
+        if (possibleTargets.Count > 0)
+            return GetMostAdvancedEnemy(possibleTargets);
 
         return null;
     }

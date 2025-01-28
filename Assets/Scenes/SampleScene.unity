@@ -443,63 +443,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181113805}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &300844433
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3882712148575610842, guid: 7af7f9396b21e4ed0b61d2a5f5a85480, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.023
-      objectReference: {fileID: 0}
-    - target: {fileID: 3882712148575610842, guid: 7af7f9396b21e4ed0b61d2a5f5a85480, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.403
-      objectReference: {fileID: 0}
-    - target: {fileID: 3882712148575610842, guid: 7af7f9396b21e4ed0b61d2a5f5a85480, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3882712148575610842, guid: 7af7f9396b21e4ed0b61d2a5f5a85480, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3882712148575610842, guid: 7af7f9396b21e4ed0b61d2a5f5a85480, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3882712148575610842, guid: 7af7f9396b21e4ed0b61d2a5f5a85480, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3882712148575610842, guid: 7af7f9396b21e4ed0b61d2a5f5a85480, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3882712148575610842, guid: 7af7f9396b21e4ed0b61d2a5f5a85480, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3882712148575610842, guid: 7af7f9396b21e4ed0b61d2a5f5a85480, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 3882712148575610842, guid: 7af7f9396b21e4ed0b61d2a5f5a85480, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8836571055419465733, guid: 7af7f9396b21e4ed0b61d2a5f5a85480, type: 3}
-      propertyPath: m_Name
-      value: Enemy_basic
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7af7f9396b21e4ed0b61d2a5f5a85480, type: 3}
 --- !u!1 &303546449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,10 +1794,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWave:
-    basicEnemy: 100
-    fastEnemy: 0
+    basicEnemy: 10
+    fastEnemy: 10
   respawn: {fileID: 543450651694423739}
-  spawnCooldown: 1
+  spawnCooldown: 0.5
   basicEnemy: {fileID: 8836571055419465733, guid: 7af7f9396b21e4ed0b61d2a5f5a85480, type: 3}
   fastEnemy: {fileID: 2463454059152383153, guid: ca4eb1b8207b948a58c8283de43f5a93, type: 3}
 --- !u!4 &865846596
@@ -4495,18 +4438,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerCrossbow
       objectReference: {fileID: 0}
-    - target: {fileID: 4835046035463632584, guid: abf75c3b15b6d4f9d8afe9ee9146aea4, type: 3}
-      propertyPath: damage
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4835046035463632584, guid: abf75c3b15b6d4f9d8afe9ee9146aea4, type: 3}
-      propertyPath: attackRange
-      value: 3.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 4835046035463632584, guid: abf75c3b15b6d4f9d8afe9ee9146aea4, type: 3}
-      propertyPath: attackCooldown
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7686453970505630758, guid: abf75c3b15b6d4f9d8afe9ee9146aea4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.24
@@ -4622,4 +4553,3 @@ SceneRoots:
   - {fileID: 3397250824384833317}
   - {fileID: 865846596}
   - {fileID: 5851861889787458152}
-  - {fileID: 300844433}

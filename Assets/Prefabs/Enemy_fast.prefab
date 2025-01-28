@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 3224614740183331411}
   - component: {fileID: 8727190376451887613}
   - component: {fileID: 1036566241143040820}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy_fast
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -240,7 +240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 4
-  centerPoint: {fileID: 0}
+  centerPoint: {fileID: 4865086942630185412}
+  enemyType: 1
   waypoints: []
   turnSpeed: 10
 --- !u!1 &5441132481114959472

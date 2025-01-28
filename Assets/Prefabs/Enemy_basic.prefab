@@ -561,5 +561,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoints: 4
   centerPoint: {fileID: 6118012096181538622}
+  enemyType: 2
   waypoints: []
   turnSpeed: 10
