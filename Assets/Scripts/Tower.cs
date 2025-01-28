@@ -44,13 +44,18 @@ public class Tower : MonoBehaviour
             Attack();
         }
 
+        LoseTargetIfNeeded();
+
+        RotateTowardsEnemy();
+
+    }
+
+    private void LoseTargetIfNeeded()
+    {
         if (Vector3.Distance(currentEnemy.CenterPoint(), transform.position) > attackRange)
         {
             currentEnemy = null;
         }
-
-        RotateTowardsEnemy();
-
     }
 
     private void UpdateTargetIfNeeded()

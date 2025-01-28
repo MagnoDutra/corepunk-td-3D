@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class CrossbowVisuals : MonoBehaviour
 {
-    private TowerCrossbow myTower;
     private Enemy myEnemy;
 
     [SerializeField] private LineRenderer attackVisuals;
@@ -51,7 +50,6 @@ public class CrossbowVisuals : MonoBehaviour
 
     private void Awake()
     {
-        myTower = GetComponent<TowerCrossbow>();
         material = new Material(meshRenderer.material);
         meshRenderer.material = material;
 
@@ -115,7 +113,6 @@ public class CrossbowVisuals : MonoBehaviour
 
     private IEnumerator FXCoroutine(Vector3 startPoint, Vector3 endpoint, Enemy newEnemy)
     {
-        // myTower.EnableRotation(false);
         myEnemy = newEnemy;
 
         attackVisuals.enabled = true;
@@ -125,8 +122,6 @@ public class CrossbowVisuals : MonoBehaviour
         yield return new WaitForSeconds(attackVisualDuration);
 
         attackVisuals.enabled = false;
-
-        // myTower.EnableRotation(true);
     }
 
     private IEnumerator ChangeEmission(float duration)
