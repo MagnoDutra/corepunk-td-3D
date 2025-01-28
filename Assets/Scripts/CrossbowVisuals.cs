@@ -74,6 +74,11 @@ public class CrossbowVisuals : MonoBehaviour
 
         UpdateStrings();
 
+        UpdateAttackVisualsIfNeeded();
+    }
+
+    private void UpdateAttackVisualsIfNeeded()
+    {
         if (attackVisuals.enabled && myEnemy != null)
         {
             attackVisuals.SetPosition(1, myEnemy.CenterPoint());
@@ -103,15 +108,15 @@ public class CrossbowVisuals : MonoBehaviour
         StartCoroutine(UpdateRotorPosition(newDuration));
     }
 
-    public void PlayAttackFX(Vector3 startPoint, Vector3 endPoint)
+    public void PlayAttackFX(Vector3 startPoint, Vector3 endPoint, Enemy newEnemy)
     {
-        StartCoroutine(FXCoroutine(startPoint, endPoint));
+        StartCoroutine(FXCoroutine(startPoint, endPoint, newEnemy));
     }
 
-    private IEnumerator FXCoroutine(Vector3 startPoint, Vector3 endpoint)
+    private IEnumerator FXCoroutine(Vector3 startPoint, Vector3 endpoint, Enemy newEnemy)
     {
         // myTower.EnableRotation(false);
-        myEnemy = myTower.currentEnemy;
+        myEnemy = newEnemy;
 
         attackVisuals.enabled = true;
         attackVisuals.SetPosition(0, startPoint);

@@ -4438,10 +4438,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerCrossbow
       objectReference: {fileID: 0}
-    - target: {fileID: 4835046035463632584, guid: abf75c3b15b6d4f9d8afe9ee9146aea4, type: 3}
-      propertyPath: enemyPriotiryType
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7686453970505630758, guid: abf75c3b15b6d4f9d8afe9ee9146aea4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.24
@@ -4452,7 +4448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7686453970505630758, guid: abf75c3b15b6d4f9d8afe9ee9146aea4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.88
+      value: 1.278
       objectReference: {fileID: 0}
     - target: {fileID: 7686453970505630758, guid: abf75c3b15b6d4f9d8afe9ee9146aea4, type: 3}
       propertyPath: m_LocalRotation.w

@@ -23,13 +23,15 @@ public class TowerCrossbow : Tower
         {
             towerHead.forward = directionToEnemy;
 
-            visuals.PlayAttackFX(gunPoint.position, hitInfo.point);
-            visuals.PlayReloadFX(attackCooldown);
-
+            Enemy enemyTarget = null;
             if (hitInfo.transform.TryGetComponent(out IDamageable damageable))
             {
                 damageable.TakeDamage(damage);
+                enemyTarget = currentEnemy;
             }
+
+            visuals.PlayAttackFX(gunPoint.position, hitInfo.point, enemyTarget);
+            visuals.PlayReloadFX(attackCooldown);
         }
     }
 }
