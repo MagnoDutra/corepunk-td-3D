@@ -18,6 +18,12 @@ public class Tower : MonoBehaviour
     [SerializeField] protected float attackCooldown = 1;
     [SerializeField] protected LayerMask whatIsEnemy;
 
+    [Space]
+    [Tooltip("Enabling this allow tower to change target beetwen attacks")]
+    [SerializeField] private bool dynamicTargetChange;
+    private float targetCheckInterval = 0.1f;
+    private float lastTimeCheckedTarget;
+
     protected virtual void Awake()
     {
         EnableRotation(true);
@@ -25,6 +31,8 @@ public class Tower : MonoBehaviour
 
     protected virtual void Update()
     {
+        UpdateTargetIfNeeded();
+
         if (currentEnemy == null)
         {
             currentEnemy = FindEnemyWithinRange();
@@ -43,6 +51,17 @@ public class Tower : MonoBehaviour
 
         RotateTowardsEnemy();
 
+    }
+
+    private void UpdateTargetIfNeeded()
+    {
+        if (!dynamicTargetChange) return;
+
+        if (Time.time > lastTimeAttacked + targetCheckInterval)
+        {
+            lastTimeCheckedTarget = Time.time;
+            currentEnemy = FindEnemyWithinRange();
+        }
     }
 
     protected virtual void Attack()
