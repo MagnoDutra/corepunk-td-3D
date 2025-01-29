@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3541281651530501795}
   - component: {fileID: 8492735921861094991}
   - component: {fileID: 702727048103551371}
+  - component: {fileID: 2184493881715789877}
   m_Layer: 0
   m_Name: TileOuterCorner
   m_TagString: Untagged
@@ -110,6 +111,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7956195870579089507, guid: e4f015fced1635b4faf93701b2d56f47, type: 3}
+--- !u!114 &2184493881715789877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5269511598045438089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53db63ffcd7e7487597361197786349a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8871080311099898160
 GameObject:
   m_ObjectHideFlags: 0
