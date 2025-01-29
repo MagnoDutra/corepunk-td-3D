@@ -39,7 +39,7 @@ public class TileSlotEditor : Editor
         GUILayout.EndHorizontal();
 
         // Row 2
-        // ---------------------------------
+        // --------------------------------
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("Sideway", GUILayout.Width(buttonWidth * 2)))
         {
@@ -50,6 +50,32 @@ public class TileSlotEditor : Editor
                 ((TileSlot)targetTile).SwitchTile(newTile);
             }
         }
+        GUILayout.EndHorizontal();
+
+        // Row 3
+        // --------------------------------
+        GUILayout.BeginHorizontal();
+
+        if (GUILayout.Button("Inner Corner", GUILayout.Width(buttonWidth)))
+        {
+            GameObject newTile = FindFirstObjectByType<TileSetHolder>().tileInnerCorner;
+
+            foreach (var targetTile in targets)
+            {
+                ((TileSlot)targetTile).SwitchTile(newTile);
+            }
+        }
+
+        if (GUILayout.Button("Outer Corner", GUILayout.Width(buttonWidth)))
+        {
+            GameObject newTile = FindFirstObjectByType<TileSetHolder>().tileOuterCorner;
+
+            foreach (var targetTile in targets)
+            {
+                ((TileSlot)targetTile).SwitchTile(newTile);
+            }
+        }
+
         GUILayout.EndHorizontal();
     }
 }

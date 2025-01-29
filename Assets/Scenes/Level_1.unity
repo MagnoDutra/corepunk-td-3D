@@ -300,6 +300,8 @@ MonoBehaviour:
   tileRoad: {fileID: 3127766309786600035, guid: fe81580bb105d4281986a0b4ab2ad4f9, type: 3}
   tileField: {fileID: 8705960164226004613, guid: 3d3b42a0be01443d9910177299b5edf6, type: 3}
   tileSidway: {fileID: 7448279249081846683, guid: 3c08593d04f2041cfa07c98580666c7c, type: 3}
+  tileInnerCorner: {fileID: 3195314898411185882, guid: e0bf24775588f4aabbccedee2dfdc67a, type: 3}
+  tileOuterCorner: {fileID: 5269511598045438089, guid: bb1f392b66ce54ebdb23881aeb5cce78, type: 3}
 --- !u!4 &1282973613
 Transform:
   m_ObjectHideFlags: 0
@@ -444,6 +446,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 442878295273366889, guid: 3d3b42a0be01443d9910177299b5edf6, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -3749961323136438499, guid: e4f015fced1635b4faf93701b2d56f47, type: 3}
     - target: {fileID: 3294574128648358194, guid: 3d3b42a0be01443d9910177299b5edf6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.80844975
@@ -487,7 +493,7 @@ PrefabInstance:
     - target: {fileID: 7224403056560220014, guid: 3d3b42a0be01443d9910177299b5edf6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: b1228c7329f4b5244a344960a5909de8, type: 2}
+      objectReference: {fileID: 2100000, guid: baa9c9932f148ad4c9573895987e7237, type: 2}
     - target: {fileID: 8705960164226004613, guid: 3d3b42a0be01443d9910177299b5edf6, type: 3}
       propertyPath: m_Name
       value: TileField
