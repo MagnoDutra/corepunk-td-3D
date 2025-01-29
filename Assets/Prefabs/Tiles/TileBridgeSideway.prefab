@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1820886343317076088}
   - component: {fileID: 3748283329175415152}
   - component: {fileID: 1172015511666571885}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TileSidewayRoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 2988059910656612131}
   - component: {fileID: 3990612199690497790}
   - component: {fileID: 1351682914409383366}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TileBridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ Transform:
   m_GameObject: {fileID: 7217173495780845458}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

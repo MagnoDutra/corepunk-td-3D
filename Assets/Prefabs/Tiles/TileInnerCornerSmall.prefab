@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 2084827913587193082}
   - component: {fileID: 7914865234788113332}
   - component: {fileID: 7384118409446820227}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TileInnerCornerRoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
