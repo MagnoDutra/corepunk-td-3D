@@ -24,10 +24,11 @@ public class TileSlotEditor : Editor
         float twoButtonWidth = (EditorGUIUtility.currentViewWidth - 25) / 2;
         float threeButtonWidth = (EditorGUIUtility.currentViewWidth - 25) / 3;
 
-        GUILayout.Label("Position and Rotation", centeredStyle);
 
         // Row 1
         // --------------------------------
+        GUILayout.Label("Position and Rotation", centeredStyle);
+
         GUILayout.BeginHorizontal();
 
         if (GUILayout.Button("Rotate Left", GUILayout.Width(twoButtonWidth)))
@@ -70,10 +71,10 @@ public class TileSlotEditor : Editor
 
         GUILayout.EndHorizontal();
 
-        GUILayout.Label("Tile Options", centeredStyle);
-
         // Row 3
         // --------------------------------
+        GUILayout.Label("Tile Options", centeredStyle);
+
         GUILayout.BeginHorizontal();
 
         if (GUILayout.Button("Field", GUILayout.Width(twoButtonWidth)))
@@ -101,6 +102,7 @@ public class TileSlotEditor : Editor
         // Row 4
         // --------------------------------
         GUILayout.BeginHorizontal();
+
         if (GUILayout.Button("Sideway", GUILayout.Width(oneButtonWidth)))
         {
             GameObject newTile = FindFirstObjectByType<TileSetHolder>().tileSidway;
@@ -110,12 +112,13 @@ public class TileSlotEditor : Editor
                 ((TileSlot)targetTile).SwitchTile(newTile);
             }
         }
-        GUILayout.EndHorizontal();
 
-        GUILayout.Label("Corner Options", centeredStyle);
+        GUILayout.EndHorizontal();
 
         // Row 5
         // --------------------------------
+        GUILayout.Label("Corner Options", centeredStyle);
+
         GUILayout.BeginHorizontal();
 
         if (GUILayout.Button("Inner Corner", GUILayout.Width(twoButtonWidth)))
@@ -140,10 +143,36 @@ public class TileSlotEditor : Editor
 
         GUILayout.EndHorizontal();
 
-        GUILayout.Label("Bridges and Hills", centeredStyle);
-
         // Row 6
         // --------------------------------
+        GUILayout.BeginHorizontal();
+
+        if (GUILayout.Button("Inner Corner Small", GUILayout.Width(twoButtonWidth)))
+        {
+            GameObject newTile = FindFirstObjectByType<TileSetHolder>().tileInnerCornerSmall;
+
+            foreach (var targetTile in targets)
+            {
+                ((TileSlot)targetTile).SwitchTile(newTile);
+            }
+        }
+
+        if (GUILayout.Button("Outer Corner Small", GUILayout.Width(twoButtonWidth)))
+        {
+            GameObject newTile = FindFirstObjectByType<TileSetHolder>().tileOuterCornerSmall;
+
+            foreach (var targetTile in targets)
+            {
+                ((TileSlot)targetTile).SwitchTile(newTile);
+            }
+        }
+
+        GUILayout.EndHorizontal();
+
+        // Row 7
+        // --------------------------------
+        GUILayout.Label("Bridges and Hills", centeredStyle);
+
         GUILayout.BeginHorizontal();
 
         if (GUILayout.Button("Hill 1", GUILayout.Width(threeButtonWidth)))
@@ -178,8 +207,7 @@ public class TileSlotEditor : Editor
 
         GUILayout.EndHorizontal();
 
-
-        // Row 7
+        // Row 8
         // --------------------------------
         GUILayout.BeginHorizontal();
 
