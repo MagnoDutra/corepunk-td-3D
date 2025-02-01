@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using Unity.Mathematics;
 using UnityEngine;
@@ -17,7 +18,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
 
     [Header("Movement")]
-    [SerializeField] private Transform[] waypoints;
+    [SerializeField] private List<Transform> waypoints;
     [SerializeField] private float turnSpeed = 10;
 
     [Space]
@@ -33,16 +34,20 @@ public class Enemy : MonoBehaviour, IDamageable
         agent.avoidancePriority = Mathf.RoundToInt(agent.speed * 10);
     }
 
-    private void Start()
+    public void SetupEnemy(List<Waypoint> newWaypoints)
     {
-        waypoints = FindFirstObjectByType<WaypointManager>().GetWaypoints();
+        waypoints = new();
+        foreach (var waypoint in newWaypoints)
+        {
+            waypoints.Add(waypoint.transform);
+        }
 
         CollectTotalDistance();
     }
 
     private void CollectTotalDistance()
     {
-        for (int i = 0; i < waypoints.Length - 1; i++)
+        for (int i = 0; i < waypoints.Count - 1; i++)
         {
             float distance = Vector3.Distance(waypoints[i].position, waypoints[i + 1].position);
             totalDistance += distance;
@@ -70,7 +75,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private Vector3 GetNextWaypoint()
     {
-        if (waypointIndex >= waypoints.Length) return transform.position;
+        if (waypointIndex >= waypoints.Count) return transform.position;
 
         Vector3 targetPoint = waypoints[waypointIndex].position;
 

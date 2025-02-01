@@ -41,6 +41,8 @@ public class EnemyPortal : MonoBehaviour
     {
         GameObject randomEnemy = GetRandomEnemy();
         GameObject newEnemy = Instantiate(randomEnemy, transform.position, Quaternion.identity);
+
+        newEnemy.GetComponent<Enemy>().SetupEnemy(waypointList);
     }
 
     private GameObject GetRandomEnemy()
